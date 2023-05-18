@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CASO 17</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Basic-icons.css">
+    <link rel="stylesheet" href="../assets/css/Sidebar-Menu-sidebar.css">
+    <link rel="stylesheet" href="../assets/css/Sidebar-Menu.css">
+    <link rel="stylesheet" href="../assets/css/Table-With-Search-search-table.css">
+    <link rel="stylesheet" href="../assets/css/Table-With-Search.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md py-3"style="background-color: #D5ECEC;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center"  href="#"><span><strong>SGFCESFAM</strong></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 search-table-col">
+                <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.." style="background: #F7FCFC;"></div><span class="counter pull-right"></span>
+                <div class="table-responsive table table-hover table-bordered results">
+                    <table class="table table-hover table-bordered">
+                        <thead class="bill-header cs">
+                            <tr>
+                                <th id="trs-hd-1" class="col-lg-2">Id Medicamento</th>
+                                <th id="trs-hd-2" class="col-lg-6">Nombre</th>
+                                <th id="trs-hd-3" class="col-lg-2">Cantidad Disponible</th>
+                                <th id="trs-hd-5" class="col-lg-2">Tipo de administracion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="warning no-result">
+                                <td colspan="12"><i class="fa fa-warning"></i>&nbsp; No Result !!!</td>
+                            </tr>
+                            
+                            <tr>
+                                <td><span style="color: rgb(102, 102, 102); background-color: rgb(255, 255, 245);">F-7638/21</span></td>
+                                <td><span style="color: rgb(102, 102, 102); background-color: rgb(255, 255, 245);">IBUPROFENO COMPRIMIDOS RECUBIERTOS 600 mg</span></td>
+                                <td>2000</td>
+                                <td>Oral</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex flex-row-reverse">
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item" style="--bs-body-bg: #D5ECEC;"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/Sidebar-Menu-sidebar.js"></script>
+    <script src="../assets/js/Table-With-Search-search-table.js"></script>
+    <script>
+        let decrementBtn = document.getElementById("decrement-btn");
+        let incrementBtn = document.getElementById("increment-btn");
+        let quantityInput = document.getElementById("quantity-input");
+      
+        decrementBtn.addEventListener("click", function() {
+          if (quantityInput.value > 1) {
+            quantityInput.value--;
+          }
+        });
+      
+        incrementBtn.addEventListener("click", function() {
+          quantityInput.value++;
+        });
+    </script>
+</body>
+
+</html>

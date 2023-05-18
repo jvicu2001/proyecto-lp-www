@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CASO 17</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Basic-icons.css">
+    <link rel="stylesheet" href="../assets/css/Sidebar-Menu-sidebar.css">
+    <link rel="stylesheet" href="../assets/css/Sidebar-Menu.css">
+    <link rel="stylesheet" href="../assets/css/Table-With-Search-search-table.css">
+    <link rel="stylesheet" href="../assets/css/Table-With-Search.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md py-3 back" style="background-color: #D5ECEC;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center"
+                href="#"><span><strong>SGFCESFAM</strong></span></a><button data-bs-toggle="collapse"
+                class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="container">
+                <h1>Generador de recetas médicas</h1>
+                <form>
+                    <div class="mb-3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 search-table-col">
+                                    <h2>Añadir medicamentos</h2>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Buscar medicamento" aria-label="Buscar medicamento" aria-describedby="button-addon2" style="background: #F7FCFC;">
+                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+                                      </div>
+                                      
+                                    <span class="counter pull-right"></span>
+                                    
+                                    
+                                    <div class="table-responsive table table-hover table-bordered results">
+                                        <table class="table table-hover table-bordered">
+                                            <thead class="bill-header cs">
+                                                <tr>
+                                                    <th id="trs-hd-1" class="col-lg-1">Id Medicamento</th>
+                                                    <th id="trs-hd-2" class="col-lg-3">Nombre</th>
+                                                    <th id="trs-hd-3" class="col-lg-1">Cantidad Disponible</th>
+                                                    <th id="trs-hd-5" class="col-lg-1">Tipo de administracion</th>
+                                                    <th id="trs-hd-6" class="col-lg-1">Dosis</th>
+                                                    <th id="trs-hd-6" class="col-lg-1">Frecuencia consumo</th>
+                                                    <th id="trs-hd-6" class="col-lg-1">Duración tratamiento</th>
+                                                    <th id="trs-hd-6" class="col-lg-1">Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="warning no-result">
+                                                    <td colspan="12"><i class="fa fa-warning"></i>&nbsp; No Result !!!</td> 
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td><span style="color: rgb(102, 102, 102); ">F-7638/21</span></td>
+                                                    <td><span style="color: rgb(102, 102, 102); ">IBUPROFENO COMPRIMIDOS RECUBIERTOS 600 mg</span></td>
+                                                    <td><span style="color: rgb(102, 102, 102); ">2000</span></td>
+                                                    <td><span style="color: rgb(102, 102, 102); ">Oral</span></td>
+                                                    <td><div class="input-group mb-3">
+                                                        <input type="text" class="form-control text-center" id="dosage-input" placeholder="Dosis" aria-label="Dosis" value="">
+                                                    </div></td>
+                                                    <td><div class="input-group mb-3">
+                                                        <input type="text" class="form-control text-center" id="freq-input" placeholder="Insertar frecuencia" aria-label="Frecuencia" value="x hrs">
+                                                    </div></td>
+                                                    <td><div class="input-group mb-3">
+                                                        <input type="text" class="form-control text-center" id="duration-input" placeholder="Duración tratamiento" aria-label="Duración" value="x días">
+                                                    </div></td>
+                                                    <!-- <td><div class="input-group mb-3">
+                                                        <button class="btn btn-outline-secondary" type="button" id="decrement-btn">-</button>
+                                                        <input type="number" class="form-control text-center" id="quantity-input" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="decrement-btn increment-btn" value="1">
+                                                        <button class="btn btn-outline-secondary" type="button" id="increment-btn">+</button>
+                                                    </div></td> -->
+                                                    <td><button class="btn btn-danger" style="margin-left: 5px;" type="submit">Remover</i></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="indicaciones" class="form-label">Indicaciones adicionales</label>
+                        <textarea class="form-control" id="indicaciones" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generar receta médica</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/Sidebar-Menu-sidebar.js"></script>
+    <script src="../assets/js/Table-With-Search-search-table.js"></script>
+    <script>
+        let decrementBtn = document.getElementById("decrement-btn");
+        let incrementBtn = document.getElementById("increment-btn");
+        let quantityInput = document.getElementById("quantity-input");
+
+        decrementBtn.addEventListener("click", function () {
+            if (quantityInput.value > 1) {
+                quantityInput.value--;
+            }
+        });
+
+        incrementBtn.addEventListener("click", function () {
+            quantityInput.value++;
+        });
+    </script>
+</body>
+
+</html>
