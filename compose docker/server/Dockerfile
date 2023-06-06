@@ -1,13 +1,17 @@
-FROM node:14
+FROM node:18
 
-WORKDIR /usr/src/app
+RUN yarn add express express-graphql graphql --save
+
+RUN mkdir /app
+
+WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN yarn install
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 4000
 
-CMD ["npm", "start"]
+CMD ["node", "server.js"]

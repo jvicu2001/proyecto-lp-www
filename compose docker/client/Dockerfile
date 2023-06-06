@@ -1,23 +1,25 @@
-# Usamos una imagen base con Node.js y Vue CLI
-FROM node:14
+FROM node:18-alpine
 
-# Establecemos el directorio de trabajo dentro del contenedor
-WORKDIR /usr/src/app
+RUN npm install -g http-server
 
-# Copiamos el package.json y el package-lock.json
+RUN mkdir /app
+
+WORKDIR /app
+
 COPY package*.json ./
 
-# Instalamos las dependencias del cliente
-RUN npm install
+COPY jsconfig.json ./
 
-# Copiamos el código fuente del cliente
+COPY vite.config.js ./
+
+COPY yarn.lock ./
+
+RUN yarn install
+
 COPY . .
 
-# Compilamos el cliente para producción
 RUN npm run build
 
-# Exponemos el puerto 8080 para el cliente
 EXPOSE 8080
 
-# Comando para iniciar el cliente
-CMD [ "npm", "run", "serve" ]
+CMD [ "http-server", "dist"]
