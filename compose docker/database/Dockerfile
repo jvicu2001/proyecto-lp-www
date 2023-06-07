@@ -1,10 +1,16 @@
-# Usamos una imagen base de PostgreSQL
-FROM postgres:latest
+# Use an official MongoDB image as the base image
+FROM mongo:latest
 
-# Variables de entorno para la base de datos
-ENV POSTGRES_USER postgres
-ENV POSTGRES_PASSWORD password
-ENV POSTGRES_DB database
+# Set the working directory inside the container
+WORKDIR /usr/src/app
 
-# Copiamos el archivo SQL de inicialización
+# Copy the MongoDB configuration file to the container
+COPY mongod.conf /etc/mongod.conf
+
+# Expose the default MongoDB port
+EXPOSE 27017
+
+# Start the MongoDB server when the container launches
+CMD ["mongod", "--config", "/etc/mongod.conf"]
+
 

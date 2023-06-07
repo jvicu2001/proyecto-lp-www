@@ -10,7 +10,9 @@ COPY package*.json ./
 
 COPY jsconfig.json ./
 
-COPY vite.config.js ./
+COPY babel.config.js ./
+
+COPY vue.config.js ./
 
 COPY yarn.lock ./
 

@@ -1,7 +1,7 @@
 version: "3"
 services:
   database:
-    image: mongo
+    image: caso17/database
     ports:
       - "27017:27017"
   server:
