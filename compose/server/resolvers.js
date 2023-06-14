@@ -1,12 +1,18 @@
+const { patientResolversQuerys, patientResolversMutations } = require("./types/patient");
+const { storeResolversQuerys, storeResolversMutations } = require("./types/store");
 const { userResolversQuerys, userResolversMutations } = require("./types/user");
 
 const resolvers = {
     Query: {
-        ...userResolversQuerys
+        ...userResolversQuerys,
+        ...patientResolversQuerys,
+        ...storeResolversQuerys
     },
 
     Mutation: {
-        ...userResolversMutations
+        ...userResolversMutations,
+        ...patientResolversMutations,
+        ...storeResolversMutations
     }
 };
 

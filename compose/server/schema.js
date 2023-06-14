@@ -1,18 +1,18 @@
 const { makeExecutableSchema } = require("graphql-tools");
 
 const { resolvers } = require("./resolvers");
-const { userQuerys, userMutations } = require("./types/user");
+const { userQuerys, userMutations, userQueryTypes, userMutationTypes } = require("./types/user");
+const { patientQuerys, patientMutations, patientMutationTypes, patientQueryTypes } = require("./types/patient");
+const { storeQuerys, storeQueryTypes, storeMutations, storeMutationTypes } = require("./types/store");
 
 const querys = `
 
     type Query {
         ${userQuerys}
 
-        getPatient(_id: ID): User
-        getPatients: [User]
+        ${patientQuerys}
 
-        getStore(_id: ID): User
-        getStores: [Store]
+        ${storeQuerys}
 
         getPrescription(_id: ID): Prescription
         getPrescriptions: [Prescription]
@@ -28,28 +28,11 @@ const querys = `
 
 const models = `
 
-    type User {
-        _id: ID
-        name: String
-        rut: Int
-        codeId: Int
-        password: String
-        role: String
-        speciality: String
-    }
+    ${userQueryTypes}
 
-    type Patient {
-        _id: ID
-        name: String
-        rut: Int
-        phone: Int
-    }
+    ${patientQueryTypes}
 
-    type Store {
-        _id: ID
-        medicineId: ID
-        units: Int
-    }
+    ${storeQueryTypes}
 
     type Prescription {
         _id: ID
@@ -79,13 +62,9 @@ const mutation = `
     type Mutation {
         ${userMutations}
 
-        createPatient(input: PatientCreateInput): Patient
-        updatePatient(_id: ID, input: PatientUpdateInput): Patient
-        deletePatient(_id: ID): Patient
+        ${patientMutations}
 
-        createStore(input: StoreCreateInput): Store
-        updateStore(_id: ID, input: StoreUpdateInput): Store
-        deleteStore(_id: ID): Store
+        ${storeMutations}
 
         createPrescription(input: PrescriptionCreateInput): Prescription
         updatePrescription(_id: ID, input: PrescriptionUpdateInput): Prescription
@@ -100,45 +79,11 @@ const mutation = `
 
 const inputs = `
 
-    input UserCreateInput {
-        name: String!
-        rut: Int!
-        codeId: Int!
-        password: String!
-        role: String!
-        speciality: String!
-    }
+    ${userMutationTypes}
 
-    input UserUpdateInput {
-        name: String
-        rut: Int
-        codeId: Int
-        password: String
-        role: String
-        speciality: String
-    }
+    ${patientMutationTypes}
 
-    input PatientCreateInput {
-        name: String!
-        rut: Int!
-        phone: Int!
-    }
-
-    input PatientUpdateInput {
-        name: String
-        rut: Int
-        phone: Int
-    }
-
-    input StoreCreateInput {
-        medicineId: ID!
-        units: Int!
-    }
-
-    input StoreUpdateInput {
-        medicineId: ID
-        units: Int
-    }
+    ${storeMutationTypes}
 
     input PrescriptionCreateInput {
         patientId: ID!
