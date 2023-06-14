@@ -1,8 +1,12 @@
+const { userResolversQuerys, userResolversMutations } = require("./types/user");
+
 const resolvers = {
     Query: {
-        hello: () => "Hola Mundo!",
+        ...userResolversQuerys
+    },
 
-        greet: (root, { name }) => `Hola ${name}!`
+    Mutation: {
+        ...userResolversMutations
     }
 };
 
