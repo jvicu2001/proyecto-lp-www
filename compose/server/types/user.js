@@ -54,6 +54,8 @@ const userResolversQuerys = {
 
 const userResolversMutations = {
     async createUser(_, { input }) {
+        input.password = await User.encryptPassword(input.password);
+
         const newUser = new User(input);
         const savedUser = await newUser.save();
 
@@ -61,6 +63,10 @@ const userResolversMutations = {
     },
 
     async updateUser(_, { _id, input }) {
+        if (input.password) {
+            input.password = await User.encryptPassword(input.password);
+        }
+
         const updatedUser = await User.findOneAndUpdate(
             { _id: _id },
             { $set: input },
@@ -71,7 +77,7 @@ const userResolversMutations = {
     },
 
     async deleteUser(_, { _id }) {
-        const deletedUser = await User.findOneAndDelete(_id);
+        const deletedUser = await User.findOneAndDelete({ _id: _id });
 
         return deletedUser;
     }
