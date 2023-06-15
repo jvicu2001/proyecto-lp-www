@@ -18,8 +18,7 @@ const querys = `
 
         ${medicineQuerys}
         
-        ${prescriptionQuerys}
-        
+        ${prescriptionQuerys}        
     }
 
 `

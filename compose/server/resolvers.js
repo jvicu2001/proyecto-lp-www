@@ -1,3 +1,4 @@
+const { medicineResolversQuerys, medicineResolversMutations } = require("./types/medicine");
 const { patientResolversQuerys, patientResolversMutations } = require("./types/patient");
 const { prescriptionResolversQuerys, prescriptionResolversMutations } = require("./types/prescription");
 const { storeResolversQuerys, storeResolversMutations } = require("./types/store");
@@ -8,6 +9,7 @@ const resolvers = {
         ...userResolversQuerys,
         ...patientResolversQuerys,
         ...storeResolversQuerys,
+        ...medicineResolversQuerys,
         ...prescriptionResolversQuerys
     },
 
@@ -15,6 +17,7 @@ const resolvers = {
         ...userResolversMutations,
         ...patientResolversMutations,
         ...storeResolversMutations,
+        ...medicineResolversMutations,
         ...prescriptionResolversMutations
     }
 };
