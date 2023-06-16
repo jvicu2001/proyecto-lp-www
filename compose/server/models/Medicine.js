@@ -1,6 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const medicineSchema = new Schema({
+    serie: {
+        type: Number,
+        unique: true,
+        required: true
+    },
     name: {
         type: String,
         required: true

@@ -84,7 +84,7 @@ const prescriptionResolversMutations = {
     },
 
     async deletePrescription(_, { _id }) {
-        const deletedPrescription = await Prescription.findOneAndDelete(_id);
+        const deletedPrescription = await Prescription.findOneAndDelete({ _id: _id });
 
         return deletedPrescription;
     }

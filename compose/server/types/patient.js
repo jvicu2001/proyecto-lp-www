@@ -61,7 +61,7 @@ const patientResolversMutations = {
     },
 
     async deletePatient(_, { _id }) {
-        const deletedPatient = await Patient.findOneAndDelete(_id);
+        const deletedPatient = await Patient.findOneAndDelete({ _id: _id });
 
         return deletedPatient;
     }

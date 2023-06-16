@@ -1,34 +1,34 @@
 const Store = require("../models/Store");
 
-const storeQuerys = `getStore(_id: ID): Store
+const storeQuerys = `getStore(medicineId: Int): Store
     getStores: [Store]
 `;
 
 const storeQueryTypes = `type Store {
     _id: ID
-    medicineId: ID
+    medicineId: Int
     units: Int
 }`;
 
 const storeMutations = `createStore(input: StoreCreateInput): Store
-    updateStore(_id: ID, input: StoreUpdateInput): Store
-    deleteStore(_id: ID): Store
+    updateStore(medicineId: Int, input: StoreUpdateInput): Store
+    deleteStore(medicineId: Int): Store
 `;
 
 const storeMutationTypes = `input StoreCreateInput {
-    medicineId: ID!
+    medicineId: Int!
     units: Int!
 }
 
 input StoreUpdateInput {
-    medicineId: ID
+    medicineId: Int
     units: Int
 }`;
 
 
 const storeResolversQuerys = {
-    async getStore(_, { _id }) {
-        const store = await Store.findById(_id);
+    async getStore(_, {serie}) {
+        const store = await Store.find({medicineId: serie});
 
         return store;
     },
@@ -58,7 +58,7 @@ const storeResolversMutations = {
     },
 
     async deleteStore(_, { _id }) {
-        const deletedStore = await Store.findOneAndDelete(_id);
+        const deletedStore = await Store.findOneAndDelete({ _id: _id });
 
         return deletedStore;
     }

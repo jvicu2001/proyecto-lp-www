@@ -3,7 +3,6 @@ const { makeExecutableSchema } = require("graphql-tools");
 const { resolvers } = require("./resolvers");
 const { userQuerys, userMutations, userQueryTypes, userMutationTypes } = require("./types/user");
 const { patientQuerys, patientMutations, patientMutationTypes, patientQueryTypes } = require("./types/patient");
-const { storeQuerys, storeQueryTypes, storeMutations, storeMutationTypes } = require("./types/store");
 const { prescriptionQuerys, prescriptionQueryTypes, prescriptionMutations, prescriptionMutationTypes } = require("./types/prescription");
 const { medicineQuerys, medicineQueryTypes, medicineMutations, medicineMutationTypes } = require("./types/medicine");
 
@@ -13,8 +12,6 @@ const querys = `
         ${userQuerys}
 
         ${patientQuerys}
-
-        ${storeQuerys}
 
         ${medicineQuerys}
         
@@ -29,8 +26,6 @@ const models = `
 
     ${patientQueryTypes}
 
-    ${storeQueryTypes}
-
     ${medicineQueryTypes}
 
     ${prescriptionQueryTypes}
@@ -42,8 +37,6 @@ const mutation = `
         ${userMutations}
 
         ${patientMutations}
-
-        ${storeMutations}
 
         ${medicineMutations}
 
@@ -57,8 +50,6 @@ const inputs = `
     ${userMutationTypes}
 
     ${patientMutationTypes}
-
-    ${storeMutationTypes}
 
     ${medicineMutationTypes}
 

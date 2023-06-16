@@ -13,7 +13,7 @@ const prescriptionSchema = new Schema({
     },
     medicines: [{
         medicineId: {
-            type: Schema.Types.ObjectId,
+            type: Number,
             ref: "Medicine",
             required: true
         },

@@ -1,23 +1,25 @@
 const Medicine = require("../models/Medicine");
 
 
-const medicineQuerys = `getMedicine(_id: ID): Medicine
+const medicineQuerys = `getMedicine(serie: Int): Medicine
     getMedicines: [Medicine]
 `;
 
 const medicineQueryTypes = `type Medicine {
     _id: ID
+    serie: Int
     name: String
     dose: Int
     units: Int
 }`;
-
 const medicineMutations = `createMedicine(input: MedicineCreateInput): Medicine
-    updateMedicine(_id: ID, input: MedicineUpdateInput): Medicine
-    deleteMedicine(_id: ID): Medicine
+    updateMedicine(serie: Int, input: MedicineUpdateInput): Medicine
+    deleteMedicine(serie: Int): Medicine
+    discountMedicine(serie: Int, input: Int): Medicine
 `;
 
 const medicineMutationTypes = `input MedicineCreateInput {
+    serie: Int!
     name: String!
     dose: Int
     units: Int
@@ -27,12 +29,13 @@ input MedicineUpdateInput {
     name: String
     dose: Int
     units: Int
-}`;
+}
+`;
 
 
 const medicineResolversQuerys = {
-    async getMedicine(_, { _id }) {
-        const medicine = await Medicine.findById(_id);
+    async getMedicine(_, { serie}) {
+        const medicine = await Medicine.find({serie:serie});
 
         return medicine;
     },
@@ -52,9 +55,9 @@ const medicineResolversMutations = {
         return savedMedicine;
     },
 
-    async updateMedicine(_, { _id, input }) {
+    async updateMedicine(_, { serie, input }) {
         const updatedMedicine = await Medicine.findOneAndUpdate(
-            { _id: _id },
+            { serie: serie },
             { $set: input },
             { useFindAndModify: false, returnOriginal: false }
         );
@@ -62,11 +65,25 @@ const medicineResolversMutations = {
         return updatedMedicine;
     },
 
-    async deleteMedicine(_, { _id }) {
-        const deletedMedicine = await Medicine.findOneAndDelete(_id);
+    async deleteMedicine(_, { serie }) {
+        const deletedMedicine = await Medicine.findOneAndDelete({ serie: serie });
 
         return deletedMedicine;
-    }
+    },
+    
+    async discountMedicine(_, { serie, input }) {
+        const medicine = await Medicine.find({serie: serie});
+
+        console.log(medicine)
+
+        const updatedMedicine = await Medicine.findOneAndUpdate(
+            { serie: serie },
+            { $set: { units: medicine[0].units - input } },
+            { useFindAndModify: false, returnOriginal: false }
+        );
+
+        return updatedMedicine;
+    }    
 }
 
 
