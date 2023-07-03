@@ -1,4 +1,4 @@
-const { makeExecutableSchema } = require("graphql-tools");
+const { gql } = require("apollo-server");
 
 const { resolvers } = require("./resolvers");
 const { userQuerys, userMutations, userQueryTypes, userMutationTypes } = require("./types/user");
@@ -58,10 +58,10 @@ const inputs = `
 `
 
 
-const typeDefs = ` ${querys} ${models} ${mutation} ${inputs}`;
+const typeDefs = gql` ${querys} ${models} ${mutation} ${inputs}`;
 
 
-module.exports = makeExecutableSchema({
+module.exports = {
     typeDefs: typeDefs,
     resolvers: resolvers
-});
+};
