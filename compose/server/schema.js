@@ -1,10 +1,13 @@
+const { makeExecutableSchema } = require("graphql-tools");
 const { gql } = require("apollo-server");
 
 const { resolvers } = require("./resolvers");
-const { userQuerys, userMutations, userQueryTypes, userMutationTypes } = require("./types/user");
-const { patientQuerys, patientMutations, patientMutationTypes, patientQueryTypes } = require("./types/patient");
-const { prescriptionQuerys, prescriptionQueryTypes, prescriptionMutations, prescriptionMutationTypes } = require("./types/prescription");
-const { medicineQuerys, medicineQueryTypes, medicineMutations, medicineMutationTypes } = require("./types/medicine");
+const { userQuerys, userMutations, userQueryTypes, userMutationTypes } = require("./graphql/user");
+const { patientQuerys, patientMutations, patientMutationTypes, patientQueryTypes } = require("./graphql/patient");
+const { prescriptionQuerys, prescriptionQueryTypes, prescriptionMutations, prescriptionMutationTypes } = require("./graphql/prescription");
+const { medicineQuerys, medicineQueryTypes, medicineMutations, medicineMutationTypes } = require("./graphql/medicine");
+
+// const { buildSchema } = require("graphql");
 
 const querys = `
 
@@ -61,7 +64,7 @@ const inputs = `
 const typeDefs = gql` ${querys} ${models} ${mutation} ${inputs}`;
 
 
-module.exports = {
+module.exports = makeExecutableSchema({
     typeDefs: typeDefs,
     resolvers: resolvers
-};
+});

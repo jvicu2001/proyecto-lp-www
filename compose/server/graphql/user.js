@@ -2,6 +2,8 @@ const User = require("../models/User");
 const { ApolloError } = require("apollo-server-errors");
 const jwt = require("jsonwebtoken");
 
+require('dotenv').config()
+
 
 const userQuerys = `getUser(_id: ID): User
     getUsers: [User]

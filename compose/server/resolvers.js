@@ -1,7 +1,7 @@
-const { medicineResolversQuerys, medicineResolversMutations } = require("./types/medicine");
-const { patientResolversQuerys, patientResolversMutations } = require("./types/patient");
-const { prescriptionResolversQuerys, prescriptionResolversMutations } = require("./types/prescription");
-const { userResolversQuerys, userResolversMutations } = require("./types/user");
+const { medicineResolversQuerys, medicineResolversMutations } = require("./graphql/medicine");
+const { patientResolversQuerys, patientResolversMutations } = require("./graphql/patient");
+const { prescriptionResolversQuerys, prescriptionResolversMutations } = require("./graphql/prescription");
+const { userResolversQuerys, userResolversMutations } = require("./graphql/user");
 
 const resolvers = {
     Query: {
