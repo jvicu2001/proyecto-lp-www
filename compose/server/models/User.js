@@ -28,6 +28,9 @@ const userSchema = new Schema({
     speciality: {
         type: String,
         required: true
+    },
+    token: {
+        type: String
     }
 },{
 	timestamps: true,
