@@ -22,11 +22,6 @@ const routes = [
     component: () => import('@/views/Login-pa.vue')
   },
   {
-    path: '/signup',
-    name: 'Sign up',
-    component: () => import('@/views/Signu-pa.vue')
-  },
-  {
     path: '/farmacia/inventario',
     name: 'Inventario Farmacia',
     component: () => import ('@/views/InventarioFarmacia.vue')
