@@ -24,28 +24,24 @@ Para el stack tecnológico se decidió utilizar MGVN. Este se compone de las sig
 
 Para este proyecto se tiene una arquitectura distribuida de forma local mediante el uso de contenedores, estos estan dividos en Frontend, Backend y Database.
 
-Para la creación del cluster en docker se tiene que ejecutar el siguiente comando dentro de la carpeta en la que se encuentre docker-compose.yml.
-
-```
-> docker-compose up
-```
+Para la creación del cluster en docker se tiene que ejecutar el siguiente comando dentro de la carpeta en la que se encuentre docker-compose.yml, dependiendo del tipo de entorno que queramos utilizar.
 
 
 ### Para entorno de producción:
 
-Arrancar con "docker-compose up"
+Arrancar con ```docker-compose up```
 
-Conectarse a cliente mediante localhost:8080
+Conectarse a cliente mediante ```localhost:8080```
 
 
 ### Para entorno de desarrollo
 
-Arrancar con "docker-compose -f docker-compose.dev.yml up"
+Arrancar con ```docker-compose -f docker-compose.dev.yml up```
 
-Conectarse al cliente mediante localhost:3000
+Conectarse al cliente mediante ```localhost:3000```
 
 
-### Rutas
+## Rutas
 
 Debido a falta de tiempo no se alcanzó a implementar todo el proyecto. Sin embargo, se adjuntan las rutas para acceder a las distintas vistas implementadas:
 
