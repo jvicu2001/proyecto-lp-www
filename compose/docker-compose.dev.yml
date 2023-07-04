@@ -16,21 +16,24 @@ services:
       - "4000:4000"
     depends_on:
       - database
+    volumes:
+      - ./server:/app
     networks:
       - backend
   client:
     build:
       context: ./client
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
-      - "8080:8080"
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
     depends_on:
       - server
     networks:
       - backend
       - frontend
-    volumes:
-      - /app/node_modules
 
 volumes:
   dbdata:

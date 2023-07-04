@@ -10,8 +10,13 @@ const medicineSchema = new Schema({
         type: String,
         required: true
     },
-    dose: Number,
-    units: Number
+    stock: Number,
+    critical_stock: Number,
+    content: String,
+    lab: String,
+    method: String
+
+
 },{
 	timestamps: true,
 	versionKey: false

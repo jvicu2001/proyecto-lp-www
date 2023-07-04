@@ -1,12 +1,44 @@
-## Inicialización de servidor frontend
+# default
 
-1. Seguir pasos de instalación de node.js, este tiene que ser la version 18.16.0
+## Project setup
 
-2. Para la ejecución de Vue ui debe abrir esta carpeta en la consola y ejecutar
+```
+# yarn
+yarn
 
-```>vue ui ```
+# npm
+npm install
 
-## Creación de Imagen docker
-1. Ejecutar el siguiente comando en la consola
+# pnpm
+pnpm install
+```
 
-```> docker build . -t caso17/client ```
+### Compiles and hot-reloads for development
+
+```
+# yarn
+yarn dev
+
+# npm
+npm run dev
+
+# pnpm
+pnpm dev
+```
+
+### Compiles and minifies for production
+
+```
+# yarn
+yarn build
+
+# npm
+npm run build
+
+# pnpm
+pnpm build
+```
+
+### Customize configuration
+
+See [Configuration Reference](https://vitejs.dev/config/).

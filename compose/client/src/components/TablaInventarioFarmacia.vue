@@ -86,6 +86,7 @@
                       <v-text-field
                         v-model="editedItem.stock"
                         label="Stock"
+                        :color="editedItem.stock < editedItem.criticalStock ? 'red' : 'green'"
                       ></v-text-field>
                     </v-col>
                     <v-col
@@ -134,7 +135,7 @@
           </v-dialog>
         </v-toolbar>
       </template>
-      <template v-slot:item.actions="{ item }">
+      <template v-slot:[`item.actions`]="{ item }">
         <v-icon
           size="small"
           class="me-2"
@@ -161,6 +162,10 @@
   </template>
   <script>
     export default {
+      name	: 'TablaInventarioFarmacia',
+      components: {
+          
+      },
       data: () => ({
         dialog: false,
         dialogDelete: false,
@@ -266,7 +271,3 @@
       },
     }
   </script>
-
-<script>
-
-</script>

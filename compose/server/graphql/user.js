@@ -56,7 +56,9 @@ const userResolversQuerys = {
 
         return user;
     },
-    async getUsers() {
+    async getUsers(_, args, context) {
+
+        console.log(context, "xDD");
         const users = await User.find();
 
         return users;
@@ -123,7 +125,7 @@ const userResolversMutations = {
         }
 
         const token = jwt.sign(
-            { userId: user._id, codeId: input.codeId },
+            { userId: user._id, codeId: input.codeId, role: user.role },
             process.env.JWT_SECRET,
             {
                 expiresIn: "24h"

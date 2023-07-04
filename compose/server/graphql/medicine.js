@@ -9,8 +9,11 @@ const medicineQueryTypes = `type Medicine {
     _id: ID
     serie: Int
     name: String
-    dose: Int
-    units: Int
+    stock: Int
+    critical_stock: Int
+    content: String
+    lab: String
+    method: String
 }`;
 const medicineMutations = `createMedicine(input: MedicineCreateInput): Medicine
     updateMedicine(serie: Int, input: MedicineUpdateInput): Medicine
@@ -21,14 +24,20 @@ const medicineMutations = `createMedicine(input: MedicineCreateInput): Medicine
 const medicineMutationTypes = `input MedicineCreateInput {
     serie: Int!
     name: String!
-    dose: Int
-    units: Int
+    stock: Int
+    critical_stock: Int
+    content: String
+    lab: String
+    method: String
 }
 
 input MedicineUpdateInput {
     name: String
-    dose: Int
-    units: Int
+    stock: Int
+    critical_stock: Int
+    content: String
+    lab: String
+    method: String
 }
 `;
 
